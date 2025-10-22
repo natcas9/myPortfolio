@@ -8,15 +8,33 @@ body {
 
 .hero {
   background-image: url("img/intro.png");
-  background-size: contain; /* 👉 muestra toda la imagen */
   background-repeat: no-repeat;
   background-position: center;
+  background-size: contain; /* muestra toda la imagen */
   background-color: #ffe8e5;
-  height: 100vh;
+
+  min-height: 100vh; /* permite que crezca si la imagen lo necesita */
   display: flex;
   justify-content: center;
-  align-items: flex-end; /* empuja hacia abajo */
-  padding-bottom: 210px; /* ajusta la distancia desde el borde inferior */
+  align-items: flex-end;
+  padding-bottom: 160px; /* ajusta según tu imagen */
+}
+
+@media (max-width: 992px) {
+  .hero {
+    background-size: 90%; /* la hace un poco más pequeña en pantallas medianas */
+    background-position: center bottom; /* asegura que no se corte por arriba */
+    padding-bottom: 80px;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero {
+    background-size: 100%;
+    background-position: center bottom;
+    min-height: 80vh;
+    padding-bottom: 60px;
+  }
 }
 
 .hero-btn {
