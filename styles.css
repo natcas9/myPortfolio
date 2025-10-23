@@ -1,3 +1,4 @@
+/* ===== Base ===== */
 body {
   margin: 0;
   font-family: "Helvetica", sans-serif;
@@ -6,33 +7,62 @@ body {
   overflow-y: auto;
 }
 
+/* ===== Navbar ===== */
+.navbar .nav-link {
+  font-size: 1.1rem;
+}
+.navbar-brand {
+  font-size: 1.8rem;
+  padding-block: 0.8rem;
+}
+@media (max-width: 768px) {
+  .navbar {
+    padding-block: 0.35rem;
+  }
+}
+
+/* ===== HERO (desktop por defecto) ===== */
 .hero {
   background-image: url("img/intro.png");
   background-repeat: no-repeat;
   background-position: center bottom;
   background-size: contain;
   background-color: #ffe8e5;
-  height: 85vh;
+
+  height: 90vh;
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  padding-bottom: 200px;
-  margin-bottom: 40px;
+  padding-bottom: 200px; /* espacio bajo la imagen */
+  margin-bottom: 40px; /* separación con la siguiente sección */
 }
 
-/* Móvil y tablets chicas */
+/* ===== HERO (móvil/tablet) ===== */
 @media (max-width: 768px) {
+  /* Usa la altura visible real en iOS */
+  @supports (height: 100svh) {
+    .hero {
+      height: 62svh;
+    }
+  }
+
+  /* Fallback si no hay svh */
   .hero {
-    height: 55vh; /* 🔹 más chica */
-    background-size: 90%; /* un poco más pequeña */
-    padding-bottom: 24px; /* 🔹 casi sin padding */
-    align-items: center; /* centra vertical para equilibrar */
+    height: 62vh;
+  }
+
+  .hero {
+    background-size: contain !important; /* 💕 mantiene toda la imagen visible */
+    background-position: bottom center !important; /* 💕 centrada y pegada abajo */
+    padding: 0 !important; /* elimina huecos innecesarios */
+    margin-bottom: 16px; /* pequeño espacio con la siguiente sección */
   }
 }
 
+/* CTA opcional dentro del hero */
 .hero-btn {
-  background-color: #4a4948; /* gris oscuro */
-  color: white;
+  background-color: #4a4948;
+  color: #fff;
   padding: 14px 28px;
   border-radius: 8px;
   text-decoration: none;
@@ -40,93 +70,52 @@ body {
   font-weight: 500;
   transition: all 0.3s ease;
 }
-
 .hero-btn:hover {
   background-color: transparent;
   border: 2px solid #4a4948;
   color: #4a4948;
 }
 
+/* ===== BRIEF ===== */
+.brief {
+  background-color: #ffe4cd;
+  padding: 100px 0;
+}
+
+/* Cards */
+.card-img-top {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.brief .card {
+  border: 5px solid #4a4948;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+}
 .card a {
   display: inline-block;
-  background-color: #4a4948; /* color de fondo */
-  color: #fff; /* color del texto */
+  background-color: #4a4948;
+  color: #fff;
   padding: 8px 16px;
   border-radius: 20px;
   text-decoration: none;
-  border: 2px solid transparent; /* crea base para hover */
+  border: 2px solid transparent;
   transition: all 0.3s ease;
 }
-
 .card a:hover {
   background-color: transparent;
   color: #4a4948;
   border: 2px solid #4a4948;
 }
 
-.brief {
-  padding: 100px 0;
-
-  background-color: #ffe4cd;
-}
-
-.brief .card {
-  border: 5px solid #4a4948; /* color gris oscuro (puedes cambiarlo) */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* para dar profundidad */
-  border-radius: 10px;
-  margin: 0 auto;
-}
-
-.brief .row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 40px; /* separa las tarjetas */
-}
-
-.small-img {
-  width: 300px;
-  height: auto;
-}
-
-/* Sección principal */
-.intro {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  padding: 80px;
-  gap: 40px;
-  min-height: 100vh;
-  background-color: rgb(255, 236, 239);
-}
-
+/* Tipografía extra */
 .title {
   font-family: "Playfair Display", serif;
 }
 
-.text-container h1 {
-  font-size: 3rem;
-  margin-bottom: 20px;
-}
-.text-container p {
-  font-size: 1.2rem;
-  line-height: 1.6;
-}
-
-.image-container {
-  display: flex;
-  justify-content: center; /* ✨ centra horizontal */
-  align-items: center; /* ✨ centra vertical */
-  height: 60%; /* asegúrate de que tenga altura */
-  text-align: center; /* por si hay texto */
-}
-
-.image-container img {
-  max-width: 60%;
-  height: auto;
-  display: block;
-}
-
+/* ===== Globe (si lo usas en otra página) ===== */
 .globe-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -136,59 +125,21 @@ body {
   padding-block: clamp(24px, 6vh, 64px);
   padding-inline: 60px;
 }
-
-/* Wrapper cuadrado que define el tamaño máx del globo
-   - Nunca mayor que 80% del alto de la ventana
-   - También limitado al ancho disponible
-   - Tope absoluto 560px
-*/
 .globe-wrap {
   --size: min(40vw, 80vh, 560px);
   width: var(--size);
   height: var(--size);
-  aspect-ratio: 1 / 1;
-  margin-left: auto; /* mantiene el globo a la derecha en desktop */
+  aspect-ratio: 1/1;
+  margin-left: auto;
   border-radius: 50%;
-  overflow: hidden; /* recorta cualquier sobrante del canvas */
+  overflow: hidden;
 }
-
-/* El contenedor del Globe ocupa todo el wrapper */
-#globo {
+#globo,
+#globo canvas {
   width: 100%;
   height: 100%;
-}
-
-/* Asegura que el canvas respete el tamaño del contenedor */
-#globo canvas {
-  width: 100% !important;
-  height: 100% !important;
   display: block;
 }
-
-.globe-text h2 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-}
-.globe-text p {
-  font-size: 1.2rem;
-  line-height: 1.6;
-}
-
-.navbar .nav-link {
-  font-size: 1.1rem; /* opcional: texto un poco más grande */
-}
-
-.navbar-brand {
-  font-size: 1.8rem; /* agranda el logo/texto */
-  padding-top: 0.8rem;
-  padding-bottom: 0.8rem;
-}
-
-.navbar-nav {
-  gap: 24px;
-}
-
-/* Responsive */
 @media (max-width: 992px) {
   .globe-section {
     grid-template-columns: 1fr;
@@ -200,6 +151,29 @@ body {
   }
 }
 
+/* ===== Footer ===== */
 footer {
   background-color: #474644;
+}
+
+@media (max-width: 768px) {
+  @supports (height: 100svh) {
+    .hero {
+      height: 52svh; /* 🔹 más baja: evita hueco arriba */
+    }
+  }
+
+  /* fallback si no hay svh */
+  .hero {
+    height: 52vh;
+  }
+
+  .hero {
+    background-size: contain !important;
+    background-position: center bottom !important;
+    background-repeat: no-repeat;
+    background-color: #ffe8e5;
+    padding: 0 !important;
+    margin-bottom: 16px;
+  }
 }
