@@ -232,37 +232,42 @@ footer {
     padding-top: 80px; /* ajusta interior si quieres */
   }
 }
-
-/* ===== Ajuste de tamaño de las cards en móvil ===== */
+/* ===== Móvil: 2 por fila y la tercera centrada abajo ===== */
 @media (max-width: 768px) {
-  .brief {
-    padding: 60px 0; /* un poco menos de espacio vertical */
+  .brief .row {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    justify-items: center; /* centra cada ítem en su celda */
   }
 
+  /* La última columna se centra y ocupa toda la fila solo si el # de columnas es impar */
+  .brief .row > div:last-child:nth-child(odd) {
+    grid-column: 1 / -1; /* ocupa las 2 columnas */
+    justify-self: center; /* centrado horizontal */
+  }
+
+  /* Tamaños mini de las cards (igual que antes) */
   .brief .card {
-    max-width: 14rem !important; /* antes 18rem → más pequeñas */
-    border-width: 3px; /* bordes un poco más finos */
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    max-width: 8.5rem !important;
+    border-width: 2px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
-
   .brief .card img {
-    width: 100%;
-    height: auto;
-    max-height: 150px; /* evita que la imagen domine demasiado */
+    max-height: 90px;
     object-fit: contain;
   }
-
   .brief .card-body {
-    padding: 12px;
+    padding: 8px;
   }
-
   .brief .card-text {
-    font-size: 0.9rem;
+    font-size: 0.7rem;
+    margin-bottom: 6px;
   }
-
   .brief .card a {
-    font-size: 0.9rem;
-    padding: 6px 14px;
-    border-radius: 18px;
+    font-size: 0.7rem;
+    padding: 4px 10px;
+    border-radius: 14px;
   }
 }
