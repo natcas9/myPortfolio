@@ -36,7 +36,7 @@ body {
   justify-content: center;
   align-items: flex-end;
   padding-bottom: 200px;
-  margin-bottom: 0; /* 💡 ahora no deja hueco antes de la siguiente sección */
+  margin-bottom: 0;
 }
 
 /* ===== CTA opcional dentro del hero ===== */
@@ -61,7 +61,7 @@ body {
 .brief {
   background-color: #ffe4cd;
   padding: 100px 0;
-  margin-top: 0 !important; /* 💡 empieza justo donde termina el hero */
+  margin-top: 0 !important;
 }
 
 /* Cards */
@@ -145,9 +145,14 @@ footer {
   background-color: #474644;
 }
 
-/* ===== HERO móvil pegado al navbar y mostrando toda la imagen ===== */
+/* ===== Fix: quitar hueco bajo el hero en desktop ===== */
+.hero {
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* ===== HERO móvil con imagen vertical ===== */
 @media (max-width: 768px) {
-  /* Asegura que no haya espacio del body o navbar debajo */
   body {
     margin-top: 0 !important;
     padding-top: 0 !important;
@@ -157,114 +162,80 @@ footer {
     margin-bottom: 0 !important;
   }
 
-  /* Altura responsiva real en móviles modernos */
-  @supports (height: 100svh) {
-    .hero {
-      height: 60svh; /* puedes ajustar a 55svh o 65svh según el alto que desees */
-    }
-  }
-
-  /* Fallback si no hay svh */
-  .hero {
-    height: 60vh;
-  }
-
-  .hero {
-    /* Mostrar TODA la imagen y pegarla al navbar */
-    background-size: contain !important;
-    background-position: top center !important;
-    background-repeat: no-repeat !important;
-
-    /* Eliminar cualquier hueco */
-    margin-top: 0 !important;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-    margin-bottom: 0 !important;
-
-    /* Alineación superior */
-    align-items: flex-start !important;
-  }
-
-  /* BRIEF inmediatamente debajo del hero */
-  .brief {
-    margin-top: 0 !important;
-    padding-top: 80px; /* ajusta si quieres más espacio interior */
-  }
-}
-
-/* ===== Fix: quitar hueco bajo el hero en desktop ===== */
-.hero {
-  padding-bottom: 0 !important; /* antes: 200px */
-  margin-bottom: 0 !important;
-}
-
-/* ===== Fix móvil: que el hero mida lo que necesita la imagen ===== */
-@media (max-width: 768px) {
-  /* Ajusta este ratio a la proporción real de tu img/intro.png.
-     Prueba primero con 56.25% (16:9). Si aún ves hueco, sube/baja el valor.
-     Ejemplos: 62% (más alto), 50% (más bajo). */
+  /* Proporción de la imagen vertical (ej. 768x1152 → 150%) */
   :root {
-    --hero-ratio: 56.25%;
+    --hero-ratio: 150%;
   }
 
   .hero {
     position: relative;
-    height: auto !important; /* sin altura fija */
-    padding: 0 !important; /* sin rellenos extra */
-    background-size: contain !important; /* que se vea TODA */
+    height: auto !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: block !important;
+
+    background-color: #ffe8e5;
+    background-image: url("/img/back2.png") !important;
+    background-size: contain !important;
     background-position: top center !important;
     background-repeat: no-repeat !important;
-    margin-bottom: 0 !important;
-    display: block !important; /* quitamos el flex que empuja */
   }
 
-  /* Pseudo-elemento que da la altura exacta según el ratio elegido */
   .hero::before {
     content: "";
     display: block;
     width: 100%;
-    padding-top: var(--hero-ratio); /* controla la altura del hero */
+    padding-top: var(--hero-ratio);
   }
 
-  /* La siguiente sección arranca justo al terminar la imagen */
   .brief {
     margin-top: 0 !important;
-    padding-top: 80px; /* ajusta interior si quieres */
+    padding-top: 80px;
   }
 }
-/* ===== Móvil: 2 por fila y la tercera centrada abajo ===== */
+
+/* ===== Mini cards (2 por fila y tercera centrada en móvil) ===== */
 @media (max-width: 768px) {
+  .brief {
+    padding: 40px 0;
+  }
+
   .brief .row {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
-    justify-items: center; /* centra cada ítem en su celda */
+    justify-items: center;
   }
 
-  /* La última columna se centra y ocupa toda la fila solo si el # de columnas es impar */
+  /* Centrar la tercera card si hay número impar */
   .brief .row > div:last-child:nth-child(odd) {
-    grid-column: 1 / -1; /* ocupa las 2 columnas */
-    justify-self: center; /* centrado horizontal */
+    grid-column: 1 / -1;
+    justify-self: center;
   }
 
-  /* Tamaños mini de las cards (igual que antes) */
   .brief .card {
     max-width: 8.5rem !important;
     border-width: 2px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
+
   .brief .card img {
+    width: 100%;
+    height: auto;
     max-height: 90px;
     object-fit: contain;
   }
+
   .brief .card-body {
     padding: 8px;
   }
+
   .brief .card-text {
     font-size: 0.7rem;
     margin-bottom: 6px;
   }
+
   .brief .card a {
     font-size: 0.7rem;
     padding: 4px 10px;
