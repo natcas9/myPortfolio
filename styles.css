@@ -11,10 +11,12 @@ body {
 .navbar .nav-link {
   font-size: 1.1rem;
 }
+
 .navbar-brand {
   font-size: 1.8rem;
   padding-block: 0.8rem;
 }
+
 @media (max-width: 768px) {
   .navbar {
     padding-block: 0.35rem;
@@ -33,33 +35,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  padding-bottom: 200px; /* espacio bajo la imagen */
-  margin-bottom: 40px; /* separación con la siguiente sección */
+  padding-bottom: 200px;
+  margin-bottom: 0; /* 💡 ahora no deja hueco antes de la siguiente sección */
 }
 
-/* ===== HERO (móvil/tablet) ===== */
-@media (max-width: 768px) {
-  /* Usa la altura visible real en iOS */
-  @supports (height: 100svh) {
-    .hero {
-      height: 62svh;
-    }
-  }
-
-  /* Fallback si no hay svh */
-  .hero {
-    height: 62vh;
-  }
-
-  .hero {
-    background-size: contain !important; /* 💕 mantiene toda la imagen visible */
-    background-position: bottom center !important; /* 💕 centrada y pegada abajo */
-    padding: 0 !important; /* elimina huecos innecesarios */
-    margin-bottom: 16px; /* pequeño espacio con la siguiente sección */
-  }
-}
-
-/* CTA opcional dentro del hero */
+/* ===== CTA opcional dentro del hero ===== */
 .hero-btn {
   background-color: #4a4948;
   color: #fff;
@@ -70,6 +50,7 @@ body {
   font-weight: 500;
   transition: all 0.3s ease;
 }
+
 .hero-btn:hover {
   background-color: transparent;
   border: 2px solid #4a4948;
@@ -80,6 +61,7 @@ body {
 .brief {
   background-color: #ffe4cd;
   padding: 100px 0;
+  margin-top: 0 !important; /* 💡 empieza justo donde termina el hero */
 }
 
 /* Cards */
@@ -88,12 +70,14 @@ body {
   height: auto;
   display: block;
 }
+
 .brief .card {
   border: 5px solid #4a4948;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   margin: 0 auto;
 }
+
 .card a {
   display: inline-block;
   background-color: #4a4948;
@@ -104,6 +88,7 @@ body {
   border: 2px solid transparent;
   transition: all 0.3s ease;
 }
+
 .card a:hover {
   background-color: transparent;
   color: #4a4948;
@@ -125,6 +110,7 @@ body {
   padding-block: clamp(24px, 6vh, 64px);
   padding-inline: 60px;
 }
+
 .globe-wrap {
   --size: min(40vw, 80vh, 560px);
   width: var(--size);
@@ -134,17 +120,20 @@ body {
   border-radius: 50%;
   overflow: hidden;
 }
+
 #globo,
 #globo canvas {
   width: 100%;
   height: 100%;
   display: block;
 }
+
 @media (max-width: 992px) {
   .globe-section {
     grid-template-columns: 1fr;
     text-align: center;
   }
+
   .globe-wrap {
     margin: 0 auto;
     --size: min(80vw, 70vh, 520px);
@@ -156,24 +145,90 @@ footer {
   background-color: #474644;
 }
 
+/* ===== HERO móvil pegado al navbar y mostrando toda la imagen ===== */
 @media (max-width: 768px) {
+  /* Asegura que no haya espacio del body o navbar debajo */
+  body {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  .navbar {
+    margin-bottom: 0 !important;
+  }
+
+  /* Altura responsiva real en móviles modernos */
   @supports (height: 100svh) {
     .hero {
-      height: 52svh; /* 🔹 más baja: evita hueco arriba */
+      height: 60svh; /* puedes ajustar a 55svh o 65svh según el alto que desees */
     }
   }
 
-  /* fallback si no hay svh */
+  /* Fallback si no hay svh */
   .hero {
-    height: 52vh;
+    height: 60vh;
   }
 
   .hero {
+    /* Mostrar TODA la imagen y pegarla al navbar */
     background-size: contain !important;
-    background-position: center bottom !important;
-    background-repeat: no-repeat;
-    background-color: #ffe8e5;
-    padding: 0 !important;
-    margin-bottom: 16px;
+    background-position: top center !important;
+    background-repeat: no-repeat !important;
+
+    /* Eliminar cualquier hueco */
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+
+    /* Alineación superior */
+    align-items: flex-start !important;
+  }
+
+  /* BRIEF inmediatamente debajo del hero */
+  .brief {
+    margin-top: 0 !important;
+    padding-top: 80px; /* ajusta si quieres más espacio interior */
+  }
+}
+
+/* ===== Fix: quitar hueco bajo el hero en desktop ===== */
+.hero {
+  padding-bottom: 0 !important; /* antes: 200px */
+  margin-bottom: 0 !important;
+}
+
+/* ===== Fix móvil: que el hero mida lo que necesita la imagen ===== */
+@media (max-width: 768px) {
+  /* Ajusta este ratio a la proporción real de tu img/intro.png.
+     Prueba primero con 56.25% (16:9). Si aún ves hueco, sube/baja el valor.
+     Ejemplos: 62% (más alto), 50% (más bajo). */
+  :root {
+    --hero-ratio: 56.25%;
+  }
+
+  .hero {
+    position: relative;
+    height: auto !important; /* sin altura fija */
+    padding: 0 !important; /* sin rellenos extra */
+    background-size: contain !important; /* que se vea TODA */
+    background-position: top center !important;
+    background-repeat: no-repeat !important;
+    margin-bottom: 0 !important;
+    display: block !important; /* quitamos el flex que empuja */
+  }
+
+  /* Pseudo-elemento que da la altura exacta según el ratio elegido */
+  .hero::before {
+    content: "";
+    display: block;
+    width: 100%;
+    padding-top: var(--hero-ratio); /* controla la altura del hero */
+  }
+
+  /* La siguiente sección arranca justo al terminar la imagen */
+  .brief {
+    margin-top: 0 !important;
+    padding-top: 80px; /* ajusta interior si quieres */
   }
 }
