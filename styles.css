@@ -232,3 +232,37 @@ footer {
     padding-top: 80px; /* ajusta interior si quieres */
   }
 }
+
+/* ===== Ajuste de tamaño de las cards en móvil ===== */
+@media (max-width: 768px) {
+  .brief {
+    padding: 60px 0; /* un poco menos de espacio vertical */
+  }
+
+  .brief .card {
+    max-width: 14rem !important; /* antes 18rem → más pequeñas */
+    border-width: 3px; /* bordes un poco más finos */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .brief .card img {
+    width: 100%;
+    height: auto;
+    max-height: 150px; /* evita que la imagen domine demasiado */
+    object-fit: contain;
+  }
+
+  .brief .card-body {
+    padding: 12px;
+  }
+
+  .brief .card-text {
+    font-size: 0.9rem;
+  }
+
+  .brief .card a {
+    font-size: 0.9rem;
+    padding: 6px 14px;
+    border-radius: 18px;
+  }
+}
