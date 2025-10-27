@@ -194,16 +194,16 @@ footer {
   }
 }
 
-/* ===== Mini cards (2 por fila y tercera centrada en móvil) ===== */
+/* ===== Cards más grandes (2 por fila y tercera centrada en móvil) ===== */
 @media (max-width: 768px) {
   .brief {
-    padding: 40px 0;
+    padding: 50px 0; /* un poco más de espacio vertical */
   }
 
   .brief .row {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 24px;
     justify-items: center;
   }
 
@@ -214,31 +214,31 @@ footer {
   }
 
   .brief .card {
-    max-width: 8.5rem !important;
-    border-width: 2px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 14.5rem !important; /* 💡 más grande que antes */
+    border-width: 3px;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
   }
 
   .brief .card img {
     width: 100%;
     height: auto;
-    max-height: 90px;
+    max-height: 120px; /* 💕 imagen más visible */
     object-fit: contain;
   }
 
   .brief .card-body {
-    padding: 8px;
+    padding: 10px;
   }
 
   .brief .card-text {
-    font-size: 0.7rem;
-    margin-bottom: 6px;
+    font-size: 0.8rem;
+    margin-bottom: 8px;
   }
 
   .brief .card a {
-    font-size: 0.7rem;
-    padding: 4px 10px;
-    border-radius: 14px;
+    font-size: 0.8rem;
+    padding: 6px 14px;
+    border-radius: 16px;
   }
 }
