@@ -4,149 +4,154 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Portafolio - Natalia Casarín</title>
-    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Bootstrap first -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
       crossorigin="anonymous"
     />
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400..900&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Your global styles (if any) -->
+    <link rel="stylesheet" href="styles.css" />
+    <!-- New page-specific CSS -->
+    <link rel="stylesheet" href="home.css" />
   </head>
-</html>
-<body>
-  <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">NCS</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-link active" aria-current="page" href="index.html"
-            >Home</a
-          >
-          <a class="nav-link" href="#">About me</a>
-          <a class="nav-link" href="projects.html">Projects</a>
+
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">NCS</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav ms-auto">
+            <a class="nav-link active" aria-current="page" href="index.html"
+              >Home</a
+            >
+            <a class="nav-link" href="#">About me</a>
+            <a class="nav-link" href="projects.html">Projects</a>
+          </div>
         </div>
       </div>
-    </div>
-  </nav>
+    </nav>
 
-  <section class="intro">
-    <div class="text-container">
-      <h1 class="title">Hello, my name is Natalia Casarín!</h1>
-      <p>
-        Soy ingeniera en Data Intelligence y Cybersecurity apasionada por la
-        tecnología, el desarrollo de software y crear soluciones que conecten a
-        las personas con el mundo digital.
-      </p>
-      <p>
-        Bienvenido a mi portafolio, donde podrás conocer mis proyectos,
-        experiencia y lo que me inspira.
-      </p>
-      <button>Learn more</button>
-    </div>
-    <div class="image-container">
-      <img src="avatar.PNG" alt="Foto de Natalia" />
-    </div>
-  </section>
-  <section class="globe-section">
-    <div class="globe-text">
-      <h2>🌍 Lugares que han marcado mi camino</h2>
-      <p>
-        Mi trayectoria profesional y personal se ha desarrollado en diferentes
-        partes del mundo. Cada experiencia ha influido en mi visión de la
-        tecnología y en cómo crear impacto global.
-      </p>
-    </div>
+    <!-- INTRO -->
+    <section class="intro">
+      <div class="text-container">
+        <h1 class="title">Hello, my name is Natalia Casarín!</h1>
+        <p>
+          Soy ingeniera en Data Intelligence y Cybersecurity apasionada por la
+          tecnología, el desarrollo de software y crear soluciones que conecten
+          a las personas con el mundo digital.
+        </p>
+        <p>
+          Bienvenido a mi portafolio, donde podrás conocer mis proyectos,
+          experiencia y lo que me inspira.
+        </p>
+        <button class="intro-btn">Learn more</button>
+      </div>
 
-    <!-- Wrapper cuadrado: define tamaño y evita recortes -->
-    <div class="globe-wrap">
-      <div id="globo"></div>
-    </div>
-  </section>
+      <div class="image-container">
+        <img src="avatar.PNG" alt="Foto de Natalia" />
+      </div>
+    </section>
 
-  <!-- Librerías -->
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-    crossorigin="anonymous"
-  ></script>
-  <script src="https://unpkg.com/three/build/three.min.js"></script>
-  <script src="https://unpkg.com/globe.gl"></script>
+    <!-- GLOBE -->
+    <section class="globe-section">
+      <div class="globe-text">
+        <h2>🌍 Lugares que han marcado mi camino</h2>
+        <p>
+          Mi trayectoria profesional y personal se ha desarrollado en diferentes
+          partes del mundo. Cada experiencia ha influido en mi visión de la
+          tecnología y en cómo crear impacto global.
+        </p>
+      </div>
 
-  <!-- Script del globo -->
-  <script>
-    const globo = Globe()(document.getElementById("globo"))
-      .globeImageUrl(
-        "https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
-      )
-      .backgroundColor("#000"); // pon 'rgba(0,0,0,0)' si quieres fondo transparente
+      <div class="globe-wrap">
+        <div id="globo"></div>
+      </div>
+    </section>
 
-    // Marcadores
-    globo
-      .htmlElementsData([
-        {
-          lat: -8.4095,
-          lng: 115.1889,
-          name: "Bali, Indonesia",
-          icon: "https://cdn-icons-png.flaticon.com/512/684/684908.png",
-        },
-        {
-          lat: 19.4326,
-          lng: -99.1332,
-          name: "Ciudad de México, México",
-          icon: "https://cdn-icons-png.flaticon.com/512/197/197397.png",
-        },
-        {
-          lat: 40.4168,
-          lng: -3.7038,
-          name: "Madrid, España",
-          icon: "https://cdn-icons-png.flaticon.com/512/197/197593.png",
-        },
-      ])
-      .htmlElement((d) => {
-        const img = document.createElement("img");
-        img.src = d.icon;
-        img.style.width = "20px";
-        img.style.height = "20px";
-        img.style.transform = "translate(-50%, -50%)";
-        img.title = d.name;
-        return img;
-      });
+    <!-- JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/three/build/three.min.js"></script>
+    <script src="https://unpkg.com/globe.gl"></script>
 
-    // 1) Forzar tamaño cuadrado del canvas según el wrapper
-    function fitGlobeToWrap() {
-      const wrap = document.querySelector(".globe-wrap");
-      const size = Math.min(wrap.clientWidth, wrap.clientHeight);
-      globo.width(size).height(size);
-    }
-    fitGlobeToWrap();
-    window.addEventListener("resize", fitGlobeToWrap);
+    <script>
+      const globo = Globe()(document.getElementById("globo"))
+        .globeImageUrl(
+          "https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
+        )
+        .backgroundColor("rgba(0,0,0,0)");
 
-    // 2) Alejar la cámara para que quepa entero dentro del círculo
-    globo.pointOfView({ lat: 0, lng: 0, altitude: 2.3 }, 0); // aumenta si aún lo ves grande (2.5–3)
+      globo
+        .htmlElementsData([
+          {
+            lat: -8.4095,
+            lng: 115.1889,
+            name: "Bali, Indonesia",
+            icon: "https://cdn-icons-png.flaticon.com/512/684/684908.png",
+          },
+          {
+            lat: 19.4326,
+            lng: -99.1332,
+            name: "Ciudad de México, México",
+            icon: "https://cdn-icons-png.flaticon.com/512/197/197397.png",
+          },
+          {
+            lat: 40.4168,
+            lng: -3.7038,
+            name: "Madrid, España",
+            icon: "https://cdn-icons-png.flaticon.com/512/197/197593.png",
+          },
+        ])
+        .htmlElement((d) => {
+          const img = document.createElement("img");
+          img.src = d.icon;
+          img.style.width = "20px";
+          img.style.height = "20px";
+          img.style.transform = "translate(-50%, -50%)";
+          img.title = d.name;
+          return img;
+        });
 
-    // Controles: rotación sin zoom/pan
-    const controls = globo.controls();
-    controls.autoRotate = true;
-    controls.autoRotateSpeed = 0.3;
-    controls.enableZoom = false;
-    controls.enablePan = false;
-  </script>
-</body>
+      function fitGlobeToWrap() {
+        const wrap = document.querySelector(".globe-wrap");
+        const size = Math.min(wrap.clientWidth, wrap.clientHeight);
+        globo.width(size).height(size);
+      }
+      fitGlobeToWrap();
+      window.addEventListener("resize", fitGlobeToWrap);
+
+      globo.pointOfView({ lat: 0, lng: 0, altitude: 2.3 }, 0);
+
+      const controls = globo.controls();
+      controls.autoRotate = true;
+      controls.autoRotateSpeed = 0.3;
+      controls.enableZoom = false;
+      controls.enablePan = false;
+    </script>
+  </body>
+</html>
