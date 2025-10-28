@@ -4,19 +4,24 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Portafolio - Natalia Casarín</title>
-    <link rel="stylesheet" href="styles.css" />
+
+    <!-- 1) Primero Bootstrap CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
       crossorigin="anonymous"
     />
+
+    <!-- 2) Luego tu CSS para que sobrescriba -->
+    <link rel="stylesheet" href="projects-style.css" />
   </head>
 
   <body>
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
+      <div class="container">
+        <!-- usa container si en otras páginas también lo usas -->
         <a class="navbar-brand" href="#">NCS</a>
         <button
           class="navbar-toggler"
@@ -30,15 +35,189 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <a class="nav-link active" aria-current="page" href="index.html"
-              >Home</a
+          <div class="navbar-nav ms-auto">
+            <a class="nav-link" href="index.html">Home</a>
+            <a class="nav-link" href="aboutme.html">About me</a>
+            <a class="nav-link active" aria-current="page" href="projects.html"
+              >Projects</a
             >
-            <a class="nav-link" href="#">About me</a>
-            <a class="nav-link" href="#">Projects</a>
           </div>
         </div>
       </div>
     </nav>
+
+    <section class="projects-grid">
+      <div class="card project-card">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img
+              src="img/weather.png"
+              class="img-fluid rounded-start"
+              alt="Weather App"
+            />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Weather App</h5>
+              <p class="card-text">
+                A weather forecast application built with React that displays
+                real-time temperature and conditions using an external API.
+              </p>
+              <p class="card-tech">React</p>
+              <a
+                href="https://react-weather-natcas.netlify.app/"
+                target="_blank"
+                >Launch</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card project-card">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img
+              src="img/clock.png"
+              class="img-fluid rounded-start"
+              alt="Clock App"
+            />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Clock App</h5>
+              <p class="card-text">
+                A simple digital clock app designed with JavaScript and CSS
+                transitions for smooth animations.
+              </p>
+              <p class="card-tech">JavaScript</p>
+              <a href="https://worldclocknatcas.netlify.app/" target="_blank"
+                >Launch</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card project-card">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img
+              src="img/robot.png"
+              class="img-fluid rounded-start"
+              alt="AI App"
+            />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">AI Chat App</h5>
+              <p class="card-text">
+                A mini AI chatbot using OpenAI’s API and a clean front-end
+                interface built in React.
+              </p>
+              <p class="card-tech">React + OpenAI API</p>
+              <a href="https://ai-generator-natcas.netlify.app/" target="_blank"
+                >Launch</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card project-card">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img
+              src="img/mexico.png"
+              class="img-fluid rounded-start"
+              alt="Mexican App"
+            />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Mexican Cuisine App</h5>
+              <p class="card-text">
+                An app featuring traditional Mexican recipes and an interactive
+                ingredient search system.
+              </p>
+              <p class="card-tech">HTML + CSS + JS</p>
+              <a href="https://mexico-travel.netlify.app/" target="_blank"
+                >Launch</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card project-card">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img
+              src="img/diccionario.png"
+              class="img-fluid rounded-start"
+              alt="Mexican App"
+            />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Dictionary App</h5>
+              <p class="card-text">
+                An app featuring traditional Mexican recipes and an interactive
+                ingredient search system.
+              </p>
+              <p class="card-tech">HTML + CSS + JS</p>
+              <a href="https://mellow-llama-6f8c9d.netlify.app/" target="_blank"
+                >Launch</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-left">
+          <h4>Natalia Casarín</h4>
+          <p>
+            Ingeniera en Data Intelligence y Cybersecurity apasionada por la
+            tecnología, el desarrollo de software y crear soluciones que
+            conecten a las personas con el mundo digital.
+          </p>
+        </div>
+
+        <div class="footer-center">
+          <!-- Intencionalmente vacío -->
+        </div>
+
+        <div class="footer-right">
+          <h4>Contact</h4>
+          <ul>
+            <li>
+              <a href="mailto:natalia.casarin02@gmail.com">email me</a>
+            </li>
+            <li>
+              <a
+                href="https://www.linkedin.com/in/nataliacasarin"
+                target="_blank"
+                >LinkedIn</a
+              >
+            </li>
+            <li>
+              <a href="https://github.com/NataliaCasarin" target="_blank"
+                >GitHub</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 Natalia Casarín — All rights reserved</p>
+      </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
