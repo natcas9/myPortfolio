@@ -223,7 +223,7 @@ footer {
   .brief .card img {
     width: 100%;
     height: auto;
-    max-height: 120px; /* 💕 imagen más visible */
+    max-height: 120px;
     object-fit: contain;
   }
 
@@ -240,5 +240,109 @@ footer {
     font-size: 0.8rem;
     padding: 6px 14px;
     border-radius: 16px;
+  }
+}
+
+.footer {
+  background-color: #4a4948;
+  color: #fff;
+  padding: 35px 20px 15px;
+  font-family: "Helvetica", sans-serif;
+  text-align: center;
+}
+
+/* Contenedor de 3 columnas */
+.footer-container {
+  display: grid;
+  grid-template-columns: 1fr 0.5fr 1fr; /* 💡 centro vacío más estrecho */
+  justify-content: center;
+  align-items: start;
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto 15px;
+}
+
+/* Columnas laterales */
+.footer-left,
+.footer-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Columna central vacía */
+.footer-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Títulos */
+.footer-left h4,
+.footer-right h4 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.2rem;
+  margin-bottom: 6px;
+  color: #ffe9e6;
+}
+
+/* Descripción izquierda */
+.footer-left p {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: #f2f2f2;
+  max-width: 340px;
+  margin: 0;
+}
+
+/* Enlaces derecha */
+.footer-right ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-right li {
+  margin-bottom: 4px;
+}
+
+.footer-right a {
+  color: #ffe9e6;
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: color 0.3s ease;
+}
+
+.footer-right a:hover {
+  color: #ffd6cc;
+}
+
+/* Línea inferior */
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 8px;
+  font-size: 0.8rem;
+  color: #ccc;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .footer {
+    padding: 25px 16px 12px;
+  }
+
+  .footer-left p {
+    font-size: 0.8rem;
+  }
+
+  .footer-right a {
+    font-size: 0.8rem;
   }
 }
