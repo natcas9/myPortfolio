@@ -1,3 +1,40 @@
+/* ===== CUSTOM NAVBAR STYLE ===== */
+.custom-navbar {
+  background-color: #4a4948 !important;
+  padding: 14px 40px;
+}
+
+.custom-navbar .navbar-brand {
+  color: #ffffff !important;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.custom-navbar .navbar-brand:hover {
+  color: #ffd6cc !important;
+}
+
+.custom-navbar .nav-link {
+  color: #ffffff !important;
+  margin-left: 20px;
+  font-family: "Zalando Sans", sans-serif;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.custom-navbar .nav-link:hover {
+  color: #ffd6cc !important;
+}
+
+/* Make the toggler icon visible on dark background */
+.custom-navbar .navbar-toggler {
+  border-color: #ffffff;
+}
+
+.custom-navbar .navbar-toggler-icon {
+  filter: invert(1);
+}
+
 /* ===== Intro section layout ===== */
 .intro {
   display: grid;
@@ -53,83 +90,89 @@
   display: block;
   filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.08));
 }
-/* ===== Intro Education Section ===== */
+/* ===== Education & Experience Section ===== */
 .intro-education {
+  background-color: #cfc2d3;
+  padding: 80px 60px;
+  display: flex;
+  justify-content: center;
+}
+
+.education-container {
   display: grid;
-  font-family: "Zalando Sans", sans-serif;
-  grid-template-columns: 1fr 1fr; /* texto un poco más ancho */
+  grid-template-columns: 1fr 0.8fr 1fr;
   align-items: center;
-  gap: clamp(24px, 5vw, 48px);
-  min-height: clamp(420px, 70vh, 720px);
-  padding: clamp(24px, 6vw, 72px);
-  background: #e4c6e0; /* 🎨 suave lila pastel */
-  color: #333;
-  font-family: "Zalando Sans", sans-serif;
+  gap: 40px;
+  max-width: 1200px;
+  width: 100%;
 }
 
-/* Text container */
-.text-container-education {
-  background: #f1eaf3 !important;
-  font-family: "Zalando Sans", sans-serif;
-  padding: 40px 50px;
+/* Text blocks */
+.text-container-education,
+.text-container-experience {
+  background: #fff;
+  border: 3px solid #cab7cf;
   border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-  max-width: 600px;
+  padding: 40px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  font-family: "Zalando Sans", sans-serif;
 }
 
-.text-container-education .title {
+.text-container-education .title,
+.text-container-experience .title {
   font-family: "Playfair Display", serif;
-  font-size: clamp(26px, 4vw, 42px);
+  font-size: 2rem;
   color: #4a4948;
   margin-bottom: 20px;
-  font-family: "Zalando Sans", sans-serif;
 }
 
-.text-container-education p {
-  font-size: clamp(14px, 1.8vw, 18px);
-  line-height: 1.5;
+.text-container-education p,
+.text-container-experience p {
+  color: #333;
+  font-size: 1rem;
+  line-height: 1.6;
   margin: 6px 0;
-  color: #444;
-  font-family: "Zalando Sans", sans-serif;
 }
 
-/* Image container */
+/* Middle image */
 .image-container-education {
-  justify-self: center;
-  max-width: 480px;
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .image-container-education img {
-  width: 100%;
+  width: 90%;
+  max-width: 320px;
   height: auto;
-  object-fit: contain;
-  display: block;
-  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.1));
-  border-radius: 16px;
+  border-radius: 12px;
 }
 
-/* ===== Responsive ===== */
+/* Responsive layout */
 @media (max-width: 992px) {
-  .intro-education {
+  .education-container {
     grid-template-columns: 1fr;
     text-align: center;
   }
 
-  .image-container-education {
-    order: -1; /* imagen arriba en tablet/móvil */
-    max-width: 340px;
-    margin: 0 auto;
-  }
-
-  .text-container-education {
-    padding: 30px 24px;
+  .image-container-education img {
+    max-width: 260px;
+    margin: 20px auto;
   }
 }
 
-.infome {
-  background: #e5d0e9;
-  font-family: "Zalando Sans", sans-serif;
+/* Center the traveler avatar inside the globe text column */
+.travel-avatar {
+  width: 100%; /* span full column */
+  display: flex; /* use flex to center */
+  justify-content: center; /* center horizontally */
+  margin-top: 15px;
+}
+
+.travel-avatar img {
+  display: block;
+  width: clamp(160px, 22vw, 220px); /* responsive size */
+  height: auto;
 }
 
 /* ===== Globe block ===== */
@@ -140,7 +183,7 @@
   gap: clamp(24px, 5vw, 60px);
   min-height: 80vh;
   padding: clamp(24px, 6vw, 72px);
-  background: #ffe4cd;
+  background: #fddec4;
 }
 
 .globe-text h2 {
@@ -200,7 +243,7 @@
 }
 
 .text-container-education {
-  background: #e5d0e9;
+  background: #ffffff;
   padding: 40px;
   border-radius: 20px;
 }

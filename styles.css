@@ -8,19 +8,32 @@ body {
 }
 
 /* ===== Navbar ===== */
-.navbar .nav-link {
-  font-size: 1.1rem;
+
+.custom-navbar {
+  background-color: #4a4948 !important;
+  padding: 14px 40px;
 }
 
-.navbar-brand {
-  font-size: 1.8rem;
-  padding-block: 0.8rem;
+.custom-navbar .navbar-brand {
+  color: #ffffff !important;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 
-@media (max-width: 768px) {
-  .navbar {
-    padding-block: 0.35rem;
-  }
+.custom-navbar .navbar-brand:hover {
+  color: #ffd6cc !important;
+}
+
+.custom-navbar .nav-link {
+  color: #ffffff !important;
+  margin-left: 20px;
+  font-family: "Zalando Sans", sans-serif;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.custom-navbar .nav-link:hover {
+  color: #ffd6cc !important;
 }
 
 /* ===== HERO (desktop por defecto) ===== */
@@ -243,11 +256,15 @@ footer {
   }
 }
 
+.travel-avatar {
+  width: 200px;
+}
+
 .footer {
   background-color: #4a4948;
   color: #fff;
   padding: 35px 20px 15px;
-  font-family: "Helvetica", sans-serif;
+  font-family: "Zalando Sans", sans-serif !important;
   text-align: center;
 }
 
@@ -281,7 +298,7 @@ footer {
 /* Títulos */
 .footer-left h4,
 .footer-right h4 {
-  font-family: "Playfair Display", serif;
+  font-family: "Zalando Sans", sans-serif !important;
   font-size: 1.2rem;
   margin-bottom: 6px;
   color: #ffe9e6;
