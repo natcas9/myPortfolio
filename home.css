@@ -37,7 +37,6 @@
 .intro .intro-btn:hover {
   background-color: transparent;
   color: #4a4948;
-  border: 2px solid #4a4948;
 }
 
 /* Image area */
@@ -53,6 +52,79 @@
   object-fit: contain; /* no cropping */
   display: block;
   filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.08));
+}
+/* ===== Intro Education Section ===== */
+.intro-education {
+  display: grid;
+  font-family: "Zalando Sans", sans-serif;
+  grid-template-columns: 1fr 1fr; /* texto un poco más ancho */
+  align-items: center;
+  gap: clamp(24px, 5vw, 48px);
+  min-height: clamp(420px, 70vh, 720px);
+  padding: clamp(24px, 6vw, 72px);
+  background: #e4c6e0; /* 🎨 suave lila pastel */
+  color: #333;
+  font-family: "Zalando Sans", sans-serif;
+}
+
+/* Text container */
+.text-container-education {
+  background: #f1eaf3 !important;
+  font-family: "Zalando Sans", sans-serif;
+  padding: 40px 50px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  max-width: 600px;
+}
+
+.text-container-education .title {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(26px, 4vw, 42px);
+  color: #4a4948;
+  margin-bottom: 20px;
+  font-family: "Zalando Sans", sans-serif;
+}
+
+.text-container-education p {
+  font-size: clamp(14px, 1.8vw, 18px);
+  line-height: 1.5;
+  margin: 6px 0;
+  color: #444;
+  font-family: "Zalando Sans", sans-serif;
+}
+
+/* Image container */
+.image-container-education {
+  justify-self: center;
+  max-width: 480px;
+  width: 100%;
+}
+
+.image-container-education img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.1));
+  border-radius: 16px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 992px) {
+  .intro-education {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .image-container-education {
+    order: -1; /* imagen arriba en tablet/móvil */
+    max-width: 340px;
+    margin: 0 auto;
+  }
+
+  .text-container-education {
+    padding: 30px 24px;
+  }
 }
 
 .infome {
@@ -127,6 +199,12 @@
   }
 }
 
+.text-container-education {
+  background: #e5d0e9;
+  padding: 40px;
+  border-radius: 20px;
+}
+
 /* ===== Info Me Section ===== */
 .infome {
   background: #f7dcd2;
@@ -137,7 +215,7 @@
 }
 
 .infome-title {
-  font-family: "Playfair Display", serif;
+  font-family: "Zalando Sans", sans-serif;
   font-size: clamp(24px, 4vw, 38px);
   margin-bottom: 40px;
   color: #4a4948;
@@ -156,7 +234,7 @@
 
 /* Card styling */
 .infome .card {
-  border: 4px solid #4a4948;
+  border: 4px solid #ffd5c7;
   border-radius: 12px;
   background-color: #fff;
   width: 100%;
@@ -182,7 +260,7 @@
 }
 
 .infome .card-title {
-  font-family: "Playfair Display", serif;
+  font-family: "Zalando Sans", sans-serif;
   font-size: 1.3rem;
   color: #4a4948;
   margin-bottom: 10px;
