@@ -246,30 +246,68 @@ a {
     gap: 22px;
   }
 }
+/* ===== Globe block (LIMPIO Y ESTABLE) ===== */
 .globe-section {
   display: grid;
-  gap: 2rem;
+  grid-template-columns: 1.2fr 1fr; /* dos columnas en desktop */
   align-items: center;
+  gap: clamp(24px, 5vw, 60px);
+  min-height: 80vh;
+  padding: clamp(24px, 6vw, 72px);
+  background: #fddec4;
+}
+
+/* --- Centrado perfecto del globo en responsive --- */
+@media (max-width: 992px) {
+  .globe-section {
+    grid-template-columns: 1fr; /* una columna */
+    place-items: center; /* centra H y V los hijos */
+    text-align: center;
+  }
+
+  .globe-wrap {
+    justify-self: center; /* centra como ítem de grid */
+    margin-inline: auto; /* por si acaso */
+    max-width: min(520px, 90vw); /* tamaño cómodo en tablet/móvil */
+    aspect-ratio: 1 / 1; /* cuadrado estable */
+  }
+
+  #globo,
+  #globo canvas {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .globe-wrap {
   position: relative;
+  box-sizing: content-box; /* evita que padding/border alteren el cálculo */
   width: 100%;
-  max-width: 600px; /* ajústalo a gusto */
-  aspect-ratio: 1 / 1; /* garantiza un cuadrado en cualquier pantalla */
+  max-width: 600px;
+  aspect-ratio: 1 / 1; /* SIEMPRE cuadrado */
   margin: 0 auto;
-}
-
-#globo {
-  width: 100%;
-  height: 100%;
-  /* importante: que NO tenga transform ni escalados por CSS */
+  padding: 0;
+  border: 0; /* sin padding/border para no desfasar */
 }
 
 @media (max-width: 576px) {
   .globe-wrap {
-    max-width: 90vw; /* usa casi todo el ancho en móvil */
+    max-width: 90vw; /* ancho generoso en móvil */
   }
+}
+
+#globo {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+#globo canvas {
+  position: absolute;
+  inset: 0; /* ocupa todo el contenedor */
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 /* Optional: reduce navbar extra spacing on small screens */

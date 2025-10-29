@@ -229,115 +229,136 @@
     <script src="https://unpkg.com/globe.gl"></script>
 
     <script>
-      // 🌍 No map changes, only kept structure intact
       const globo = Globe()(document.getElementById("globo"))
         .globeImageUrl(
           "https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
         )
         .backgroundColor("rgba(0,0,0,0)");
 
-      globo
-        .htmlElementsData([
-          {
-            lat: -8.4095,
-            lng: 115.1889,
-            name: "Bali, Indonesia 🇮🇩",
-            icon: "https://flagcdn.com/w40/id.png",
-          },
-          {
-            lat: 15.87,
-            lng: 100.9925,
-            name: "Tailandia 🇹🇭",
-            icon: "https://flagcdn.com/w40/th.png",
-          },
-          {
-            lat: 19.4326,
-            lng: -99.1332,
-            name: "Ciudad de México, México 🇲🇽",
-            icon: "https://flagcdn.com/w40/mx.png",
-          },
-          {
-            lat: 40.4168,
-            lng: -3.7038,
-            name: "Madrid, España 🇪🇸",
-            icon: "https://flagcdn.com/w40/es.png",
-          },
-          {
-            lat: 41.8781,
-            lng: -87.6298,
-            name: "Chicago, EE. UU. 🇺🇸",
-            icon: "https://flagcdn.com/w40/us.png",
-          },
-          {
-            lat: 48.4284,
-            lng: -123.3656,
-            name: "Victoria, Canadá 🇨🇦",
-            icon: "https://flagcdn.com/w40/ca.png",
-          },
-          {
-            lat: 45.4642,
-            lng: 9.19,
-            name: "Milán, Italia 🇮🇹",
-            icon: "https://flagcdn.com/w40/it.png",
-          },
-          {
-            lat: 15.7835,
-            lng: -90.2308,
-            name: "Guatemala 🇬🇹",
-            icon: "https://flagcdn.com/w40/gt.png",
-          },
-          {
-            lat: 52.52,
-            lng: 13.405,
-            name: "Berlín, Alemania 🇩🇪",
-            icon: "https://flagcdn.com/w40/de.png",
-          },
-          {
-            lat: 51.5072,
-            lng: -0.1276,
-            name: "Londres, Reino Unido 🇬🇧",
-            icon: "https://flagcdn.com/w40/gb.png",
-          },
-          {
-            lat: 39.3999,
-            lng: -8.2245,
-            name: "Portugal 🇵🇹",
-            icon: "https://flagcdn.com/w40/pt.png",
-          },
-          {
-            lat: 48.8566,
-            lng: 2.3522,
-            name: "París, Francia 🇫🇷",
-            icon: "https://flagcdn.com/w40/fr.png",
-          },
-        ])
-        .htmlElement((d) => {
-          const img = document.createElement("img");
-          img.src = d.icon;
-          img.style.width = "18px";
-          img.style.height = "18px";
-          img.style.transform = "translate(-50%, -50%)";
-          img.title = d.name;
-          img.loading = "lazy";
-          img.decoding = "async";
-          return img;
-        });
+      // 1) Tus marcadores (los mismos que ya tienes)
+      const MARKERS = [
+        {
+          lat: -8.4095,
+          lng: 115.1889,
+          name: "Bali, Indonesia 🇮🇩",
+          icon: "https://flagcdn.com/w40/id.png",
+        },
+        {
+          lat: 15.87,
+          lng: 100.9925,
+          name: "Tailandia 🇹🇭",
+          icon: "https://flagcdn.com/w40/th.png",
+        },
+        {
+          lat: 19.4326,
+          lng: -99.1332,
+          name: "Ciudad de México, México 🇲🇽",
+          icon: "https://flagcdn.com/w40/mx.png",
+        },
+        {
+          lat: 40.4168,
+          lng: -3.7038,
+          name: "Madrid, España 🇪🇸",
+          icon: "https://flagcdn.com/w40/es.png",
+        },
+        {
+          lat: 41.8781,
+          lng: -87.6298,
+          name: "Chicago, EE. UU. 🇺🇸",
+          icon: "https://flagcdn.com/w40/us.png",
+        },
+        {
+          lat: 48.4284,
+          lng: -123.3656,
+          name: "Victoria, Canadá 🇨🇦",
+          icon: "https://flagcdn.com/w40/ca.png",
+        },
+        {
+          lat: 45.4642,
+          lng: 9.19,
+          name: "Milán, Italia 🇮🇹",
+          icon: "https://flagcdn.com/w40/it.png",
+        },
+        {
+          lat: 15.7835,
+          lng: -90.2308,
+          name: "Guatemala 🇬🇹",
+          icon: "https://flagcdn.com/w40/gt.png",
+        },
+        {
+          lat: 52.52,
+          lng: 13.405,
+          name: "Berlín, Alemania 🇩🇪",
+          icon: "https://flagcdn.com/w40/de.png",
+        },
+        {
+          lat: 51.5072,
+          lng: -0.1276,
+          name: "Londres, Reino Unido 🇬🇧",
+          icon: "https://flagcdn.com/w40/gb.png",
+        },
+        {
+          lat: 39.3999,
+          lng: -8.2245,
+          name: "Portugal 🇵🇹",
+          icon: "https://flagcdn.com/w40/pt.png",
+        },
+        {
+          lat: 48.8566,
+          lng: 2.3522,
+          name: "París, Francia 🇫🇷",
+          icon: "https://flagcdn.com/w40/fr.png",
+        },
+      ];
 
-      function fitGlobeToWrap() {
-        const wrap = document.querySelector(".globe-wrap");
-        const rect = wrap.getBoundingClientRect();
-        // si por estilo no hay altura calculada, usamos el ancho (gracias al aspect-ratio será idéntico)
-        const size = Math.min(rect.width, rect.height || rect.width);
-        globo.width(size).height(size);
+      globo.htmlElement((d) => {
+        const img = document.createElement("img");
+        img.src = d.icon;
+        img.style.width = "18px";
+        img.style.height = "18px";
+        img.style.transform = "translate(-50%, -50%)";
+        img.title = d.name;
+        img.loading = "lazy";
+        img.decoding = "async";
+        return img;
+      });
+
+      // 2) Mostrar/ocultar en función del viewport
+      function updateMarkersForViewport() {
+        const isMobile = window.matchMedia("(max-width: 992px)").matches; // cambia el breakpoint si quieres
+        globo.htmlElementsData(isMobile ? [] : MARKERS);
       }
 
-      // inicializa y escucha cambios de tamaño/orientación
+      // Inicializa
+      updateMarkersForViewport();
+
+      // 3) Mantén el globo cuadrado (tu función original)
+      function fitGlobeToWrap() {
+        const wrap = document.querySelector(".globe-wrap");
+        const size = Math.min(wrap.clientWidth, wrap.clientHeight);
+        globo.width(size).height(size);
+      }
       fitGlobeToWrap();
-      window.addEventListener("resize", fitGlobeToWrap);
-      window.addEventListener("orientationchange", fitGlobeToWrap);
 
+      // 4) Listeners
+      window.addEventListener("resize", () => {
+        fitGlobeToWrap();
+        updateMarkersForViewport();
+      });
+      window.addEventListener("orientationchange", () => {
+        fitGlobeToWrap();
+        updateMarkersForViewport();
+      });
+
+      // Reajusta tamaño al cambiar el layout (tablet/móvil)
+      const wrapEl = document.querySelector(".globe-wrap");
+      if ("ResizeObserver" in window && wrapEl) {
+        const ro = new ResizeObserver(() => fitGlobeToWrap());
+        ro.observe(wrapEl);
+      }
+
+      // POV + controles (igual que ya tienes)
       globo.pointOfView({ lat: 0, lng: 0, altitude: 2.3 }, 0);
-
       const controls = globo.controls();
       controls.autoRotate = true;
       controls.autoRotateSpeed = 0.3;
