@@ -1,4 +1,8 @@
 /* ===== CUSTOM NAVBAR STYLE ===== */
+a {
+  text-decoration: none;
+}
+
 .custom-navbar {
   background-color: #4a4948 !important;
   padding: 14px 40px;
@@ -120,7 +124,7 @@
 
 .text-container-education .title,
 .text-container-experience .title {
-  font-family: "Playfair Display", serif;
+  font-family: "Zalando Sans", sans-serif !important;
   font-size: 2rem;
   color: #4a4948;
   margin-bottom: 20px;
@@ -357,7 +361,7 @@
 /* Titles */
 .footer-left h4,
 .footer-right h4 {
-  font-family: "Playfair Display", serif;
+  font-family: "Zalando Sans", sans-serif;
   font-size: 1.2rem;
   margin-bottom: 8px;
   color: #ffe9e6;
