@@ -43,7 +43,7 @@ body {
   gap: 30px;
   justify-items: center;
   padding: 40px 60px;
-  background-color: #f7dcd2;
+  background-color: #bfbfbf;
 }
 
 /* Cada tarjeta tendrá la misma altura dentro del grid */
@@ -51,7 +51,7 @@ body {
   display: flex;
   flex-direction: column;
   height: 100%;
-  border: 4px solid #ffd5c7;
+  border: 4px solid #a1a1a1;
   border-radius: 16px;
   background-color: #fff;
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
@@ -90,7 +90,6 @@ body {
   height: 100%;
   object-fit: cover;
   object-position: center; /* 👈 centra la parte visible */
-  border-right: 4px solid #ffd5c7;
   border-radius: 12px 0 0 12px;
 }
 
