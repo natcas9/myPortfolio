@@ -1,3 +1,4 @@
+/* ===== Base ===== */
 body {
   margin: 0;
   font-family: "Helvetica", sans-serif;
@@ -6,26 +7,23 @@ body {
   overflow-y: auto;
 }
 
-/* ===== CUSTOM NAVBAR STYLE ===== */
 a {
   text-decoration: none;
 }
 
+/* ===== Navbar ===== */
 .custom-navbar {
   background-color: #4a4948 !important;
   padding: 14px 40px;
 }
-
 .custom-navbar .navbar-brand {
   color: #ffffff !important;
   font-weight: 600;
   letter-spacing: 1px;
 }
-
 .custom-navbar .navbar-brand:hover {
   color: #ffd6cc !important;
 }
-
 .custom-navbar .nav-link {
   color: #ffffff !important;
   margin-left: 20px;
@@ -33,32 +31,26 @@ a {
   font-weight: 500;
   transition: color 0.3s ease;
 }
-
 .custom-navbar .nav-link:hover {
   color: #ffd6cc !important;
 }
-
-/* Make the toggler icon visible on dark background */
 .custom-navbar .navbar-toggler {
   border-color: #ffffff;
 }
-
 .custom-navbar .navbar-toggler-icon {
   filter: invert(1);
 }
 
-/* ===== Intro section layout ===== */
+/* ===== Intro ===== */
 .intro {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr; /* text a bit wider than image */
+  grid-template-columns: 1.1fr 0.9fr;
   align-items: center;
   gap: clamp(24px, 4vw, 48px);
   min-height: clamp(520px, 80vh, 760px);
   padding: clamp(24px, 6vw, 72px);
   background: #ffe9e6;
 }
-
-/* Text area */
 .intro .title {
   font-family: "Zalando Sans", sans-serif;
   font-size: clamp(28px, 5vw, 56px);
@@ -66,13 +58,11 @@ a {
   margin: 0 0 16px;
   color: #333;
 }
-
 .intro p {
   font-size: clamp(14px, 1.9vw, 18px);
   margin: 0 0 10px;
   color: #444;
 }
-
 .intro .intro-btn {
   margin-top: 18px;
   background-color: #4a4948;
@@ -88,7 +78,7 @@ a {
   color: #4a4948;
 }
 
-/* Image area */
+/* Intro image */
 .image-container {
   width: 100%;
   max-width: 520px;
@@ -97,19 +87,19 @@ a {
 .image-container img {
   width: 100%;
   height: auto;
-  aspect-ratio: 1 / 1; /* keeps it square if the source allows */
-  object-fit: contain; /* no cropping */
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
   display: block;
   filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.08));
 }
-/* ===== Education & Experience Section ===== */
+
+/* ===== Education & Experience ===== */
 .intro-education {
   background-color: #cfc2d3;
   padding: 80px 60px;
   display: flex;
   justify-content: center;
 }
-
 .education-container {
   display: grid;
   grid-template-columns: 1fr 0.8fr 1fr;
@@ -118,8 +108,6 @@ a {
   max-width: 1200px;
   width: 100%;
 }
-
-/* Text blocks */
 .text-container-education,
 .text-container-experience {
   background: #fff;
@@ -129,7 +117,6 @@ a {
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
   font-family: "Zalando Sans", sans-serif;
 }
-
 .text-container-education .title,
 .text-container-experience .title {
   font-family: "Zalando Sans", sans-serif !important;
@@ -137,7 +124,6 @@ a {
   color: #4a4948;
   margin-bottom: 20px;
 }
-
 .text-container-education p,
 .text-container-experience p {
   color: #333;
@@ -145,14 +131,11 @@ a {
   line-height: 1.6;
   margin: 6px 0;
 }
-
-/* Middle image */
 .image-container-education {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
 .image-container-education img {
   width: 90%;
   max-width: 320px;
@@ -160,34 +143,20 @@ a {
   border-radius: 12px;
 }
 
-/* Responsive layout */
-@media (max-width: 992px) {
-  .education-container {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .image-container-education img {
-    max-width: 260px;
-    margin: 20px auto;
-  }
-}
-
-/* Center the traveler avatar inside the globe text column */
+/* ===== Avatar viajera (columna de texto del globo) ===== */
 .travel-avatar {
-  width: 100%; /* span full column */
-  display: flex; /* use flex to center */
-  justify-content: center; /* center horizontally */
+  width: 100%;
+  display: flex;
+  justify-content: center;
   margin-top: 15px;
 }
-
 .travel-avatar img {
   display: block;
-  width: clamp(160px, 22vw, 220px); /* responsive size */
+  width: clamp(160px, 22vw, 220px);
   height: auto;
 }
 
-/* ===== Globe block ===== */
+/* ===== Globe Section ===== */
 .globe-section {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
@@ -197,7 +166,6 @@ a {
   padding: clamp(24px, 6vw, 72px);
   background: #fddec4;
 }
-
 .globe-text h2 {
   font-family: "Zalando Sans", sans-serif;
   font-size: clamp(22px, 3.2vw, 34px);
@@ -210,6 +178,17 @@ a {
   margin: 0;
 }
 
+/* Contenedor del globo: cuadrado y centrado */
+.globe-wrap {
+  position: relative;
+  box-sizing: content-box;
+  width: 100%;
+  max-width: 600px;
+  aspect-ratio: 1 / 1;
+  margin: 0 auto;
+  padding: 0;
+  border: 0;
+}
 #globo,
 #globo canvas {
   width: 100%;
@@ -217,113 +196,7 @@ a {
   display: block;
 }
 
-/* ===== Responsive ===== */
-@media (max-width: 992px) {
-  .intro {
-    grid-template-columns: 1fr; /* stack */
-    text-align: center;
-  }
-  .image-container {
-    order: -1;
-  } /* avatar on top on tablets */
-  .globe-section {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-}
-
-@media (max-width: 768px) {
-  .intro {
-    min-height: unset;
-    padding: 28px 20px;
-    gap: 22px;
-  }
-  .image-container {
-    max-width: 360px;
-  }
-  .globe-section {
-    padding: 28px 20px 52px;
-    gap: 22px;
-  }
-}
-/* ===== Globe block (LIMPIO Y ESTABLE) ===== */
-.globe-section {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr; /* dos columnas en desktop */
-  align-items: center;
-  gap: clamp(24px, 5vw, 60px);
-  min-height: 80vh;
-  padding: clamp(24px, 6vw, 72px);
-  background: #fddec4;
-}
-
-/* --- Centrado perfecto del globo en responsive --- */
-@media (max-width: 992px) {
-  .globe-section {
-    grid-template-columns: 1fr; /* una columna */
-    place-items: center; /* centra H y V los hijos */
-    text-align: center;
-  }
-
-  .globe-wrap {
-    justify-self: center; /* centra como ítem de grid */
-    margin-inline: auto; /* por si acaso */
-    max-width: min(520px, 90vw); /* tamaño cómodo en tablet/móvil */
-    aspect-ratio: 1 / 1; /* cuadrado estable */
-  }
-
-  #globo,
-  #globo canvas {
-    width: 100%;
-    height: 100%;
-  }
-}
-
-.globe-wrap {
-  position: relative;
-  box-sizing: content-box; /* evita que padding/border alteren el cálculo */
-  width: 100%;
-  max-width: 600px;
-  aspect-ratio: 1 / 1; /* SIEMPRE cuadrado */
-  margin: 0 auto;
-  padding: 0;
-  border: 0; /* sin padding/border para no desfasar */
-}
-
-@media (max-width: 576px) {
-  .globe-wrap {
-    max-width: 90vw; /* ancho generoso en móvil */
-  }
-}
-
-#globo {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-#globo canvas {
-  position: absolute;
-  inset: 0; /* ocupa todo el contenedor */
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-/* Optional: reduce navbar extra spacing on small screens */
-@media (max-width: 768px) {
-  .navbar {
-    padding-block: 0.35rem;
-  }
-}
-
-.text-container-education {
-  background: #ffffff;
-  padding: 40px;
-  border-radius: 20px;
-}
-
-/* ===== Info Me Section ===== */
+/* ===== Info Me ===== */
 .infome {
   background: #f7dcd2;
   color: #333;
@@ -331,15 +204,12 @@ a {
   text-align: center;
   padding: 80px 40px;
 }
-
 .infome-title {
   font-family: "Zalando Sans", sans-serif;
   font-size: clamp(24px, 4vw, 38px);
   margin-bottom: 40px;
   color: #4a4948;
 }
-
-/* Grid layout */
 .infome-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -349,8 +219,6 @@ a {
   max-width: 1100px;
   margin: 0 auto;
 }
-
-/* Card styling */
 .infome .card {
   border: 4px solid #ffd5c7;
   border-radius: 12px;
@@ -360,47 +228,32 @@ a {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .infome .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
-
 .infome .card-img-top {
   width: 100%;
   height: 200px;
   object-fit: cover;
   border-bottom: 4px solid #4a4948;
 }
-
 .infome .card-body {
   padding: 20px;
 }
-
 .infome .card-title {
   font-family: "Zalando Sans", sans-serif;
   font-size: 1.3rem;
   color: #4a4948;
   margin-bottom: 10px;
 }
-
 .infome .card-text {
   font-size: 0.95rem;
   color: #444;
   line-height: 1.5;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .infome {
-    padding: 60px 20px;
-  }
-
-  .infome .card-img-top {
-    height: 180px;
-  }
-}
-/* ===== FOOTER CLEAN LAYOUT ===== */
+/* ===== Footer ===== */
 .footer {
   background-color: #4a4948;
   color: #fff;
@@ -408,8 +261,6 @@ a {
   font-family: "Zalando Sans", sans-serif;
   text-align: center;
 }
-
-/* Grid layout: 3 columns, middle one empty for spacing */
 .footer-container {
   display: grid;
   grid-template-columns: 1fr 0.4fr 1fr;
@@ -419,8 +270,6 @@ a {
   max-width: 1000px;
   margin: 0 auto 20px;
 }
-
-/* Columns */
 .footer-left,
 .footer-right {
   display: flex;
@@ -428,8 +277,6 @@ a {
   align-items: center;
   text-align: center;
 }
-
-/* Titles */
 .footer-left h4,
 .footer-right h4 {
   font-family: "Zalando Sans", sans-serif;
@@ -437,8 +284,6 @@ a {
   margin-bottom: 8px;
   color: #ffe9e6;
 }
-
-/* Description */
 .footer-left p {
   font-size: 0.9rem;
   line-height: 1.5;
@@ -446,30 +291,23 @@ a {
   max-width: 360px;
   margin: 0;
 }
-
-/* Links */
 .footer-right ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-
 .footer-right li {
   margin-bottom: 6px;
 }
-
 .footer-right a {
   color: #ffe9e6;
   text-decoration: none;
   font-size: 0.9rem;
   transition: color 0.3s ease;
 }
-
 .footer-right a:hover {
   color: #ffd6cc;
 }
-
-/* Bottom line */
 .footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   padding-top: 10px;
@@ -479,18 +317,88 @@ a {
 }
 
 /* ===== Responsive ===== */
+
+/* Edu section a 1 columna */
+@media (max-width: 992px) {
+  .education-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .image-container-education img {
+    max-width: 260px;
+    margin: 20px auto;
+  }
+}
+
+/* Intro + Globe a 1 columna; globo centrado; oculta banderas con JS aparte */
+@media (max-width: 992px) {
+  .intro {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .image-container {
+    order: -1;
+  }
+
+  .globe-section {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    align-items: start;
+    text-align: center;
+    padding: 28px 20px 52px;
+    gap: 22px;
+  }
+  .globe-section > * {
+    justify-self: center;
+    width: 100%;
+  }
+  .globe-wrap {
+    display: grid;
+    place-items: center;
+    margin-inline: auto;
+    width: min(92vw, 600px);
+    aspect-ratio: 1 / 1;
+  }
+  #globo,
+  #globo canvas {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+  }
+}
+
+/* Ajustes menores */
 @media (max-width: 768px) {
+  .intro {
+    min-height: unset;
+    padding: 28px 20px;
+    gap: 22px;
+  }
+  .image-container {
+    max-width: 360px;
+  }
+  .infome {
+    padding: 60px 20px;
+  }
+  .infome .card-img-top {
+    height: 180px;
+  }
   .footer-container {
     grid-template-columns: 1fr;
     gap: 20px;
   }
-
   .footer {
     padding: 25px 16px 12px;
   }
-
   .footer-left p,
   .footer-right a {
     font-size: 0.85rem;
+  }
+}
+
+/* Navbar spacing en móviles */
+@media (max-width: 768px) {
+  .navbar {
+    padding-block: 0.35rem;
   }
 }

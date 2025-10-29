@@ -114,44 +114,6 @@ body {
 }
 
 /* ===== Globe (si lo usas en otra página) ===== */
-.globe-section {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 50px;
-  min-height: 100vh;
-  padding-block: clamp(24px, 6vh, 64px);
-  padding-inline: 60px;
-}
-
-.globe-wrap {
-  --size: min(40vw, 80vh, 560px);
-  width: var(--size);
-  height: var(--size);
-  aspect-ratio: 1/1;
-  margin-left: auto;
-  border-radius: 50%;
-  overflow: hidden;
-}
-
-#globo,
-#globo canvas {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-@media (max-width: 992px) {
-  .globe-section {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .globe-wrap {
-    margin: 0 auto;
-    --size: min(80vw, 70vh, 520px);
-  }
-}
 
 /* ===== Footer ===== */
 footer {
@@ -227,7 +189,7 @@ footer {
   }
 
   .brief .card {
-    max-width: 13.5rem !important; /* 💡 más grande que antes */
+    max-width: 13.5rem !important;
     border-width: 3px;
     border-radius: 10px;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
@@ -268,10 +230,9 @@ footer {
   text-align: center;
 }
 
-/* Contenedor de 3 columnas */
 .footer-container {
   display: grid;
-  grid-template-columns: 1fr 0.5fr 1fr; /* 💡 centro vacío más estrecho */
+  grid-template-columns: 1fr 0.5fr 1fr;
   justify-content: center;
   align-items: start;
   gap: 20px;
@@ -279,7 +240,6 @@ footer {
   margin: 0 auto 15px;
 }
 
-/* Columnas laterales */
 .footer-left,
 .footer-right {
   display: flex;
@@ -295,7 +255,6 @@ footer {
   justify-content: center;
 }
 
-/* Títulos */
 .footer-left h4,
 .footer-right h4 {
   font-family: "Zalando Sans", sans-serif !important;
@@ -304,7 +263,6 @@ footer {
   color: #ffe9e6;
 }
 
-/* Descripción izquierda */
 .footer-left p {
   font-size: 0.85rem;
   line-height: 1.4;
@@ -313,7 +271,6 @@ footer {
   margin: 0;
 }
 
-/* Enlaces derecha */
 .footer-right ul {
   list-style: none;
   padding: 0;
@@ -335,7 +292,6 @@ footer {
   color: #ffd6cc;
 }
 
-/* Línea inferior */
 .footer-bottom {
   text-align: center;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
