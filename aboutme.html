@@ -242,43 +242,43 @@
             lat: -8.4095,
             lng: 115.1889,
             name: "Bali, Indonesia 🇮🇩",
-            icon: "https://cdn-icons-png.flaticon.com/512/197/197561.png",
+            icon: "https://flagcdn.com/w40/id.png",
           },
           {
             lat: 15.87,
             lng: 100.9925,
             name: "Tailandia 🇹🇭",
-            icon: "https://cdn-icons-png.flaticon.com/512/197/197452.png",
+            icon: "https://flagcdn.com/w40/th.png",
           },
           {
             lat: 19.4326,
             lng: -99.1332,
             name: "Ciudad de México, México 🇲🇽",
-            icon: "https://cdn-icons-png.flaticon.com/512/197/197397.png",
+            icon: "https://flagcdn.com/w40/mx.png",
           },
           {
             lat: 40.4168,
             lng: -3.7038,
             name: "Madrid, España 🇪🇸",
-            icon: "https://cdn-icons-png.flaticon.com/512/197/197593.png",
+            icon: "https://flagcdn.com/w40/es.png",
           },
           {
             lat: 41.8781,
             lng: -87.6298,
             name: "Chicago, EE. UU. 🇺🇸",
-            icon: "https://cdn-icons-png.flaticon.com/512/197/197484.png",
+            icon: "https://flagcdn.com/w40/us.png",
           },
           {
             lat: 48.4284,
             lng: -123.3656,
             name: "Victoria, Canadá 🇨🇦",
-            icon: "https://cdn-icons-png.flaticon.com/512/197/197430.png",
+            icon: "https://flagcdn.com/w40/ca.png",
           },
           {
             lat: 45.4642,
             lng: 9.19,
             name: "Milán, Italia 🇮🇹",
-            icon: "https://cdn-icons-png.flaticon.com/512/197/197626.png",
+            icon: "https://flagcdn.com/w40/it.png",
           },
           {
             lat: 15.7835,
@@ -290,25 +290,25 @@
             lat: 52.52,
             lng: 13.405,
             name: "Berlín, Alemania 🇩🇪",
-            icon: "https://cdn-icons-png.flaticon.com/512/197/197571.png",
+            icon: "https://flagcdn.com/w40/de.png",
           },
           {
             lat: 51.5072,
             lng: -0.1276,
             name: "Londres, Reino Unido 🇬🇧",
-            icon: "https://cdn-icons-png.flaticon.com/512/197/197374.png",
+            icon: "https://flagcdn.com/w40/gb.png",
           },
           {
             lat: 39.3999,
             lng: -8.2245,
             name: "Portugal 🇵🇹",
-            icon: "https://cdn-icons-png.flaticon.com/512/197/197463.png",
+            icon: "https://flagcdn.com/w40/pt.png",
           },
           {
             lat: 48.8566,
             lng: 2.3522,
             name: "París, Francia 🇫🇷",
-            icon: "https://cdn-icons-png.flaticon.com/512/197/197560.png",
+            icon: "https://flagcdn.com/w40/fr.png",
           },
         ])
         .htmlElement((d) => {
@@ -318,16 +318,23 @@
           img.style.height = "18px";
           img.style.transform = "translate(-50%, -50%)";
           img.title = d.name;
+          img.loading = "lazy";
+          img.decoding = "async";
           return img;
         });
 
       function fitGlobeToWrap() {
         const wrap = document.querySelector(".globe-wrap");
-        const size = Math.min(wrap.clientWidth, wrap.clientHeight);
+        const rect = wrap.getBoundingClientRect();
+        // si por estilo no hay altura calculada, usamos el ancho (gracias al aspect-ratio será idéntico)
+        const size = Math.min(rect.width, rect.height || rect.width);
         globo.width(size).height(size);
       }
+
+      // inicializa y escucha cambios de tamaño/orientación
       fitGlobeToWrap();
       window.addEventListener("resize", fitGlobeToWrap);
+      window.addEventListener("orientationchange", fitGlobeToWrap);
 
       globo.pointOfView({ lat: 0, lng: 0, altitude: 2.3 }, 0);
 
